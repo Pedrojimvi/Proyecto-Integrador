@@ -2,12 +2,12 @@ package com.dam.model;
 
 public class Usuario {
 	private int id;
-	private String contrasena;
+	private String password;
 	private String apeNom;
 	
-	public Usuario(int id, String contrasena, String apeNom) {
+	public Usuario(int id, String password, String apeNom) {
 		this.id = id;
-		this.contrasena = contrasena;
+		this.password = password;
 		this.apeNom = apeNom;
 	}
 
@@ -19,8 +19,8 @@ public class Usuario {
 		return id;
 	}
 
-	public String getContrasena() {
-		return contrasena;
+	public String getPassword() {
+		return password;
 	}
 
 }
