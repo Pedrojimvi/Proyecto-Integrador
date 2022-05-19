@@ -38,7 +38,7 @@ public class VCrear extends JFrame {
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(70, 93, 60, 17);
+		lblPassword.setBounds(70, 93, 94, 17);
 		getContentPane().add(lblPassword);
 		
 		txtUsuario = new JTextField();
@@ -66,7 +66,7 @@ public class VCrear extends JFrame {
 		txtPwdC.setBounds(224, 145, 114, 21);
 		getContentPane().add(txtPwdC);
 		
-		setSize(ANCHO, ALTO);
+		setSize(400, 315);
 	}
 	
 	private void centrarVentana() {

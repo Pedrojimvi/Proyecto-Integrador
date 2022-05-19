@@ -11,10 +11,11 @@ import com.dam.control.InicioControl;
 import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class VPrincipal extends JFrame {
-	static final int ANCHO = 400;
-	static final int ALTO = 250;
+	static final int ANCHO = 750;
+	static final int ALTO = 550;
 	public static final String MNTM_PEDIDO = "Pedido";
 	public static final String MNTM_VENTA = "Venta";
 	public static final String MNTM_CERRAR = "Cerrar Sesion";
@@ -22,6 +23,7 @@ public class VPrincipal extends JFrame {
 	private JMenuItem mntmCerrar;
 	private JMenuItem mntmVenta;
 	private JMenuItem mntmPedido;
+	private JScrollPane scrpContenedor;
 	
 	public VPrincipal() {
 		init();
@@ -32,9 +34,9 @@ public class VPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 12, 376, 170);
-		getContentPane().add(scrollPane);
+		scrpContenedor = new JScrollPane();
+		scrpContenedor.setBounds(12, 12, PPedido.ANCHO_PANEL, PPedido.ALTO_PANEL);
+		getContentPane().add(scrpContenedor);
 		
 		setSize(ANCHO, ALTO);
 		centrarVentana();
@@ -58,6 +60,10 @@ public class VPrincipal extends JFrame {
 		mntmCerrar = new JMenuItem(MNTM_CERRAR);
 		mntmCerrar.setHorizontalAlignment(SwingConstants.RIGHT);
 		menuBar.add(mntmCerrar);
+	}
+	
+	public void cargarPanel(JPanel panel) {
+		scrpContenedor.setViewportView(panel);
 	}
 	
 	public void setControlador(InicioControl control) {
