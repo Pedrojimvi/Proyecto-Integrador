@@ -3,6 +3,7 @@ package com.dam.main;
 import java.awt.EventQueue;
 
 import com.dam.control.InicioControl;
+import com.dam.db.persistencia.FarmaciaPersistencia;
 import com.dam.view.VInicio;
 import com.dam.view.VPrincipal;
 import com.dam.view.PPedido;
@@ -20,8 +21,9 @@ public class Inicio {
 				VCrear vCrear = new VCrear();
 				PPedido pPedido = new PPedido();
 				PVenta pVenta = new PVenta();
+				FarmaciaPersistencia fPersistencia = new FarmaciaPersistencia();
 				
-				InicioControl control = new InicioControl(vInicio, vPpal, vCrear, pPedido, pVenta);
+				InicioControl control = new InicioControl(vInicio, vPpal, vCrear, pPedido, pVenta, fPersistencia);
 				
 				vInicio.setControlador(control);
 				vCrear.setControlador(control);
