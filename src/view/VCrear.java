@@ -90,4 +90,37 @@ public class VCrear extends JFrame {
 		txtPwd.setText(null);
 		txtPwdC.setText(null);
 	}
+	
+	public String getUser() {
+		return txtUsuario.getText();
+	}
+
+	public String getContrasena() {
+		return txtPwd.getText();
+	}
+
+	public String getCContrasena() {
+		return txtPwdC.getText();
+	}
+	
+	public void mostrarError(String mensaje) {
+		JOptionPane.showMessageDialog(this,  mensaje, "Error de datos", JOptionPane.ERROR_MESSAGE);
+		
+	}
+
+	public boolean comprobarContrasenas() {
+		boolean b;
+		
+		if (txtPwd.equals(txtPwdC)) {
+			b = false;
+		}else {
+			b = true;
+		}
+		
+		return b;
+	}
+
+	public void mostrarMensaje(String mensaje) {
+		JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.INFORMATION_MESSAGE);
+	}
 }
