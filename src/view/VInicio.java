@@ -81,4 +81,18 @@ public class VInicio extends JFrame {
 		txtUsuario.setText(null);
 		txtPwd.setText(null);
 	}
+	
+	public String getNomUser() {
+		String nombre = txtUsuario.getText();
+		return nombre;
+	}
+
+	public void mostrarError(String mensaje) {
+		JOptionPane.showMessageDialog(this,  mensaje, "Error de datos", JOptionPane.ERROR_MESSAGE);
+		
+	}
+
+	public String getContrasena() {
+		return txtPwd.getText();
+	}
 }
