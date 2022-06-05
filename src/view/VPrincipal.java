@@ -72,7 +72,13 @@ public class VPrincipal extends JFrame {
 		mntmCerrar.addActionListener(control);
 	}
 	
+	
+	
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	public void borrarCont() {
+		scrpContenedor.setViewportView(null);
 	}
 }
