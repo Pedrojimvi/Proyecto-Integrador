@@ -74,7 +74,7 @@ public class InicioControl implements ActionListener {
 					if (user == null) {
 						boolean b = vCrear.comprobarContrasenas();
 						
-						if (b == true) {
+						if (b == false) {
 							int num = fPersistencia.crearUsuarioNuevo(usuario, pwd);
 							if (num == 1) {
 								vCrear.mostrarMensaje("El nuevo usuario ha sido registrado correctamente");
