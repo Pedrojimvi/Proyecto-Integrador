@@ -111,7 +111,7 @@ public class VCrear extends JFrame {
 	public boolean comprobarContrasenas() {
 		boolean b;
 		
-		if (txtPwd.equals(txtPwdC)) {
+		if (txtPwd.getText().equals(txtPwdC.getText())) {
 			b = false;
 		}else {
 			b = true;
