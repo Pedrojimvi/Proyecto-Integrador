@@ -2,14 +2,14 @@ package com.dam.control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 
 import com.dam.view.VInicio;
 import com.dam.view.VPrincipal;
-import com.dam.db.persistencia.FarmaciaPersistencia;
+import com.dam.persistencia.FarmaciaPersistencia;
 import com.dam.model.Usuario;
 import com.dam.view.PPedido;
 import com.dam.view.PVenta;
@@ -35,7 +35,7 @@ public class InicioControl implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		ArrayList<String> lista = new ArrayList<String>();
+		//ArrayList<String> lista = new ArrayList<String>();
 		Usuario user = null;
 		
 		if (ev.getSource() instanceof JButton) {
@@ -137,6 +137,7 @@ public class InicioControl implements ActionListener {
 			else if (ev.getActionCommand().equals(VPrincipal.MNTM_CERRAR)) {
 				vPrincipal.dispose();
 				volverInicio();
+				vPrincipal.borrarCont();
 			}
 		}
 	}
