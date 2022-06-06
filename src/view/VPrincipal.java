@@ -73,7 +73,7 @@ public class VPrincipal extends JFrame {
 		mntmCerrar.addActionListener(control);
 	}
 	
-	public int mostrarConfirmación(String mensaje, int tipo) {
+	public int mostrarConfirmacion(String mensaje, int tipo) {
 		int resp = JOptionPane.showConfirmDialog(this, mensaje, "Confirmación", JOptionPane.YES_NO_OPTION, tipo);
 		
 		return resp;
