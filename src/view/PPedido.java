@@ -16,6 +16,7 @@ import javax.swing.JSeparator;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.JTextField;
 
 public class PPedido extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
@@ -27,18 +28,18 @@ public class PPedido extends JPanel {
 	public static final String BTN_PEDIDO = "Realizar Pedido";
 	private JComboBox cmbTipo;
 	private JComboBox cmbFarma;
-	private JComboBox cmbNombre;
 	private JSpinner spnMin;
 	private JSpinner spnMax;
 	private JRadioButton rdbtnStock;
 	private JButton btnFiltrar;
 	private JSpinner spnCantidad;
-	private JButton btnAñadir;
+	private JButton btnAnadir;
 	private JButton btnLimpiar;
 	private JButton btnQuitar;
 	private JButton btnPedido;
 	private JTable tblProd;
 	private JTable tblPed;
+	private JTextField txtNom;
 	
 	public PPedido() {
 		setLayout(null);
@@ -64,10 +65,6 @@ public class PPedido extends JPanel {
 		JLabel lblFarma = new JLabel("Farmacéutica:");
 		lblFarma.setBounds(28, 81, 109, 14);
 		add(lblFarma);
-		
-		cmbNombre = new JComboBox();
-		cmbNombre.setBounds(139, 114, 68, 14);
-		add(cmbNombre);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(28, 114, 60, 14);
@@ -108,9 +105,9 @@ public class PPedido extends JPanel {
 		lblCantidad.setBounds(38, 304, 89, 14);
 		add(lblCantidad);
 		
-		btnAñadir = new JButton(BTN_ANADIR);
-		btnAñadir.setBounds(28, 335, 136, 23);
-		add(btnAñadir);
+		btnAnadir = new JButton(BTN_ANADIR);
+		btnAnadir.setBounds(28, 335, 136, 23);
+		add(btnAnadir);
 		
 		btnLimpiar = new JButton(BTN_LIMPIAR);
 		btnLimpiar.setBounds(192, 333, 89, 23);
@@ -139,10 +136,15 @@ public class PPedido extends JPanel {
 		add(tblPed);
 		
 		setSize(ANCHO_PANEL, ALTO_PANEL);
+		
+		txtNom = new JTextField();
+		txtNom.setBounds(111, 111, 114, 21);
+		add(txtNom);
+		txtNom.setColumns(10);
 	}
 	
 	public void setControladorBotones(InicioControl  c) {
-		btnAñadir.addActionListener(c);
+		btnAnadir.addActionListener(c);
 		btnFiltrar.addActionListener(c);
 		btnPedido.addActionListener(c);
 		btnQuitar.addActionListener(c);
@@ -151,7 +153,7 @@ public class PPedido extends JPanel {
 	
 	public void resetearValores() {
 		tblProd.setSelectionMode(0);
-		cmbNombre.setSelectedIndex(0);
+		txtNom.setText(null);
 		cmbTipo.setSelectedIndex(0);
 		cmbFarma.setSelectedIndex(0);
 		spnCantidad.setValue(0);

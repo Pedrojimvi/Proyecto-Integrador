@@ -16,6 +16,7 @@ import com.dam.control.InicioControl;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.JTextField;
 
 public class PVenta extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
@@ -30,11 +31,11 @@ public class PVenta extends JPanel {
 	private JButton btnQuitar;
 	private JButton btnVenta;
 	private JComboBox cmbTipo;
-	private JComboBox cmbNombre;
 	private JButton btnFiltrar;
 	private JSpinner spnCantidad;
-	private JButton btnAñadir;
+	private JButton btnAnadir;
 	private JButton btnLimpiar;
+	private JTextField txtNom;
 	
 	public PVenta() {
 		setLayout(null);
@@ -56,10 +57,6 @@ public class PVenta extends JPanel {
 		lblNombre.setBounds(49, 107, 73, 14);
 		add(lblNombre);
 		
-		cmbNombre = new JComboBox();
-		cmbNombre.setBounds(113, 99, 78, 22);
-		add(cmbNombre);
-		
 		btnFiltrar = new JButton(BTN_FILTRAR);
 		btnFiltrar.setBounds(230, 78, 89, 23);
 		add(btnFiltrar);
@@ -73,9 +70,9 @@ public class PVenta extends JPanel {
 		spnCantidad.setBounds(162, 270, 56, 20);
 		add(spnCantidad);
 		
-		btnAñadir = new JButton(BTN_ANADIR);
-		btnAñadir.setBounds(49, 303, 140, 23);
-		add(btnAñadir);
+		btnAnadir = new JButton(BTN_ANADIR);
+		btnAnadir.setBounds(49, 303, 140, 23);
+		add(btnAnadir);
 		
 		btnLimpiar = new JButton(BTN_LIMPIAR);
 		btnLimpiar.setBounds(201, 303, 89, 23);
@@ -105,10 +102,15 @@ public class PVenta extends JPanel {
 		add(tblVenta);
 		
 		setSize(ANCHO_PANEL, ALTO_PANEL);
+		
+		txtNom = new JTextField();
+		txtNom.setBounds(113, 104, 114, 21);
+		add(txtNom);
+		txtNom.setColumns(10);
 	}
 	
 	public void setControladorBotones(InicioControl  c) {
-		btnAñadir.addActionListener(c);
+		btnAnadir.addActionListener(c);
 		btnFiltrar.addActionListener(c);
 		btnVenta.addActionListener(c);
 		btnQuitar.addActionListener(c);
@@ -117,7 +119,7 @@ public class PVenta extends JPanel {
 	
 	public void resetearValores() {
 		tblProd.setSelectionMode(0);
-		cmbNombre.setSelectedIndex(0);
+		txtNom.setText(null);
 		cmbTipo.setSelectedIndex(0);
 		spnCantidad.setValue(0);
 	}

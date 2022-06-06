@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.dam.control.InicioControl;
@@ -20,7 +21,7 @@ public class VInicio extends JFrame {
 	
 	private JTextField txtUsuario;
 	private JPasswordField txtPwd;
-	private JButton btnIniciarSesión;
+	private JButton btnIniciarSesion;
 	private JButton btnCrearUsuario;
 
 	public VInicio() {
@@ -49,9 +50,9 @@ public class VInicio extends JFrame {
 		txtPwd.setBounds(203, 85, 114, 21);
 		getContentPane().add(txtPwd);
 		
-		btnIniciarSesión = new JButton(BTN_INICIAR);
-		btnIniciarSesión.setBounds(57, 148, 123, 27);
-		getContentPane().add(btnIniciarSesión);
+		btnIniciarSesion = new JButton(BTN_INICIAR);
+		btnIniciarSesion.setBounds(57, 148, 123, 27);
+		getContentPane().add(btnIniciarSesion);
 		
 		btnCrearUsuario = new JButton(BTN_CREAR);
 		btnCrearUsuario.setBounds(225, 148, 123, 27);
@@ -73,7 +74,7 @@ public class VInicio extends JFrame {
 	}
 	
 	public void setControlador(InicioControl control) {
-		btnIniciarSesión.addActionListener(control);
+		btnIniciarSesion.addActionListener(control);
 		btnCrearUsuario.addActionListener(control);
 	}
 	

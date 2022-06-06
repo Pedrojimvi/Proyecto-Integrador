@@ -11,6 +11,7 @@ import com.dam.control.InicioControl;
 import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class VPrincipal extends JFrame {
@@ -18,7 +19,7 @@ public class VPrincipal extends JFrame {
 	static final int ALTO = 550;
 	public static final String MNTM_PEDIDO = "Pedido";
 	public static final String MNTM_VENTA = "Venta";
-	public static final String MNTM_CERRAR = "Cerrar Sesion";
+	public static final String MNTM_CERRAR = "Cerrar Sesión";
 	
 	private JMenuItem mntmCerrar;
 	private JMenuItem mntmVenta;
@@ -72,7 +73,11 @@ public class VPrincipal extends JFrame {
 		mntmCerrar.addActionListener(control);
 	}
 	
-	
+	public int mostrarConfirmación(String mensaje, int tipo) {
+		int resp = JOptionPane.showConfirmDialog(this, mensaje, "Confirmación", JOptionPane.YES_NO_OPTION, tipo);
+		
+		return resp;
+	}
 	
 	public void hacerVisible() {
 		setVisible(true);
