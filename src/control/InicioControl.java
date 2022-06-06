@@ -134,7 +134,7 @@ public class InicioControl implements ActionListener {
 				mostrarVenta();
 			}
 			else if (ev.getActionCommand().equals(VPrincipal.MNTM_CERRAR)) {
-				int resp = vPrincipal.mostrarConfirmación("Se va a cerrar la sesión ¿desea continuar?", 1);
+				int resp = vPrincipal.mostrarConfirmacion("Se va a cerrar la sesión ¿desea continuar?", 1);
 				
 				if (resp == 0) {
 					vPrincipal.dispose();
