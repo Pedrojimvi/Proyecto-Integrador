@@ -35,7 +35,6 @@ public class InicioControl implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		//ArrayList<String> lista = new ArrayList<String>();
 		Usuario user = null;
 		
 		if (ev.getSource() instanceof JButton) {
@@ -135,9 +134,13 @@ public class InicioControl implements ActionListener {
 				mostrarVenta();
 			}
 			else if (ev.getActionCommand().equals(VPrincipal.MNTM_CERRAR)) {
-				vPrincipal.dispose();
-				volverInicio();
-				vPrincipal.borrarCont();
+				int resp = vPrincipal.mostrarConfirmación("Se va a cerrar la sesión ¿desea continuar?", 1);
+				
+				if (resp == 0) {
+					vPrincipal.dispose();
+					volverInicio();
+					vPrincipal.borrarCont();
+				}		
 			}
 		}
 	}
