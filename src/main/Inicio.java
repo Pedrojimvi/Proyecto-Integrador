@@ -3,7 +3,7 @@ package com.dam.main;
 import java.awt.EventQueue;
 
 import com.dam.control.InicioControl;
-import com.dam.db.persistencia.FarmaciaPersistencia;
+import com.dam.persistencia.FarmaciaPersistencia;
 import com.dam.view.VInicio;
 import com.dam.view.VPrincipal;
 import com.dam.view.PPedido;
