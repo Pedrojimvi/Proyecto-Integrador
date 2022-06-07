@@ -27,7 +27,7 @@ public class PPedido extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
 	public static final int ALTO_PANEL = VPrincipal.ALTO - 100;
 	public static final String BTN_FILTRAR = "Filtrar";
-	public static final String BTN_ANADIR = "Añadir Producto";
+	public static final String BTN_ANADIR = "AÃ±adir Producto";
 	public static final String BTN_LIMPIAR = "Limpiar";
 	public static final String BTN_QUITAR = "Quitar Producto";
 	public static final  String BTN_PEDIDO = "Realizar Pedido";
@@ -72,7 +72,7 @@ public class PPedido extends JPanel {
 		cmbFarma.setBounds(142, 81, 77, 14);
 		add(cmbFarma);
 		
-		JLabel lblFarma = new JLabel("Farmacéutica:");
+		JLabel lblFarma = new JLabel("FarmacÃ©utica:");
 		lblFarma.setBounds(28, 81, 109, 14);
 		add(lblFarma);
 		
@@ -157,6 +157,7 @@ public class PPedido extends JPanel {
 		setSize(ANCHO_PANEL, ALTO_PANEL);
 		
 		txtNom = new JTextField();
+		txtNom.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
 		txtNom.setBounds(111, 111, 114, 21);
 		add(txtNom);
 		txtNom.setColumns(10);
