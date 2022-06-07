@@ -12,19 +12,25 @@ import com.dam.control.InicioControl;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.SystemColor;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
+import java.awt.Font;
 
 public class VInicio extends JFrame {
 	private static final int ANCHO = 400;
 	private static final int ALTO = 250;
-	public static final String BTN_INICIAR = "Iniciar SesiÃ³n";
+	public static final String BTN_INICIAR = "Iniciar Sesión";
 	public static final String BTN_CREAR = "Crear Usuario";
 	
 	private JTextField txtUsuario;
 	private JPasswordField txtPwd;
 	private JButton btnIniciarSesion;
 	private JButton btnCrearUsuario;
+	private JLabel lblNewLabel;
 
 	public VInicio() {
+		getContentPane().setBackground(SystemColor.window);
 		init();
 	}
 
@@ -34,31 +40,39 @@ public class VInicio extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(86, 33, 60, 17);
+		lblUsuario.setBounds(199, 92, 60, 17);
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(86, 87, 69, 17);
+		lblPassword.setBounds(190, 120, 69, 17);
 		getContentPane().add(lblPassword);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(203, 31, 114, 21);
+		txtUsuario.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtUsuario.setBackground(SystemColor.window);
+		txtUsuario.setBounds(245, 90, 114, 21);
 		getContentPane().add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtPwd = new JPasswordField();
-		txtPwd.setBounds(203, 85, 114, 21);
+		txtPwd.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtPwd.setBounds(245, 116, 114, 21);
 		getContentPane().add(txtPwd);
 		
 		btnIniciarSesion = new JButton(BTN_INICIAR);
-		btnIniciarSesion.setBounds(57, 148, 123, 27);
+		btnIniciarSesion.setBounds(115, 172, 123, 27);
 		getContentPane().add(btnIniciarSesion);
 		
 		btnCrearUsuario = new JButton(BTN_CREAR);
-		btnCrearUsuario.setBounds(225, 148, 123, 27);
+		btnCrearUsuario.setBounds(288, 172, 123, 27);
 		getContentPane().add(btnCrearUsuario);
 		
-		setSize(ANCHO, ALTO);
+		lblNewLabel = new JLabel("PHARMA MAKER");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
+		lblNewLabel.setBounds(161, 25, 223, 57);
+		getContentPane().add(lblNewLabel);
+		
+		setSize(531, 308);
 		centrarVentana();
 	}
 	

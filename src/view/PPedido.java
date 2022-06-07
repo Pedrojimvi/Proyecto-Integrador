@@ -17,15 +17,20 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextField;
+import java.awt.SystemColor;
+import javax.swing.border.BevelBorder;
+import java.awt.Component;
+import java.awt.Cursor;
+import javax.swing.border.MatteBorder;
 
 public class PPedido extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
 	public static final int ALTO_PANEL = VPrincipal.ALTO - 100;
 	public static final String BTN_FILTRAR = "Filtrar";
-	public static final String BTN_ANADIR = "AÃ±adir Producto";
+	public static final String BTN_ANADIR = "Añadir Producto";
 	public static final String BTN_LIMPIAR = "Limpiar";
 	public static final String BTN_QUITAR = "Quitar Producto";
-	public static final String BTN_PEDIDO = "Realizar Pedido";
+	public static final  String BTN_PEDIDO = "Realizar Pedido";
 	private JComboBox cmbTipo;
 	private JComboBox cmbFarma;
 	private JSpinner spnMin;
@@ -42,15 +47,20 @@ public class PPedido extends JPanel {
 	private JTextField txtNom;
 	
 	public PPedido() {
+		setBackground(SystemColor.window);
 		setLayout(null);
 		
 		JLabel lblPedido = new JLabel("REALIZAR PEDIDO");
 		lblPedido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPedido.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
+		lblPedido.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
 		lblPedido.setBounds(289, 23, 162, 14);
 		add(lblPedido);
 		
+		
 		cmbTipo = new JComboBox();
+		cmbTipo.setOpaque(false);
+		cmbTipo.setBorder(null);
+		cmbTipo.setBackground(SystemColor.window);
 		cmbTipo.setBounds(112, 55, 77, 14);
 		add(cmbTipo);
 		
@@ -62,7 +72,7 @@ public class PPedido extends JPanel {
 		cmbFarma.setBounds(142, 81, 77, 14);
 		add(cmbFarma);
 		
-		JLabel lblFarma = new JLabel("FarmacÃ©utica:");
+		JLabel lblFarma = new JLabel("Farmacéutica:");
 		lblFarma.setBounds(28, 81, 109, 14);
 		add(lblFarma);
 		
@@ -71,6 +81,9 @@ public class PPedido extends JPanel {
 		add(lblNombre);
 		
 		spnMin = new JSpinner();
+		spnMin.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		spnMin.setBorder(null);
+		spnMin.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		spnMin.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spnMin.setBounds(128, 151, 46, 20);
 		add(spnMin);
@@ -84,11 +97,13 @@ public class PPedido extends JPanel {
 		add(lblMax);
 		
 		spnMax = new JSpinner();
+		spnMax.setBorder(null);
 		spnMax.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spnMax.setBounds(243, 151, 40, 20);
 		add(spnMax);
 		
 		rdbtnStock = new JRadioButton("Stock");
+		rdbtnStock.setBackground(SystemColor.window);
 		rdbtnStock.setBounds(221, 51, 77, 23);
 		add(rdbtnStock);
 		
@@ -128,10 +143,14 @@ public class PPedido extends JPanel {
 		add(btnPedido);
 		
 		tblProd = new JTable();
+		tblProd.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		tblProd.setBackground(SystemColor.scrollbar);
 		tblProd.setBounds(12, 195, 335, 94);
 		add(tblProd);
 		
 		tblPed = new JTable();
+		tblPed.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		tblPed.setBackground(SystemColor.scrollbar);
 		tblPed.setBounds(409, 65, 288, 205);
 		add(tblPed);
 		
