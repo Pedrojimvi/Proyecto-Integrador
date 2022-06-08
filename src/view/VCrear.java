@@ -122,6 +122,6 @@ public class VCrear extends JFrame {
 	}
 
 	public void mostrarMensaje(String mensaje) {
-		JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, mensaje, "InformaciÃ³n", JOptionPane.INFORMATION_MESSAGE);
 	}
 }

@@ -13,15 +13,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.awt.SystemColor;
-import java.awt.Font;
 
 public class VPrincipal extends JFrame {
 	static final int ANCHO = 750;
 	static final int ALTO = 550;
 	public static final String MNTM_PEDIDO = "Pedido";
 	public static final String MNTM_VENTA = "Venta";
-	public static final String MNTM_CERRAR = "Cerrar Sesión";
+	public static final String MNTM_CERRAR = "Cerrar SesiÃ³n";
 	
 	private JMenuItem mntmCerrar;
 	private JMenuItem mntmVenta;
@@ -29,7 +27,6 @@ public class VPrincipal extends JFrame {
 	private JScrollPane scrpContenedor;
 	
 	public VPrincipal() {
-		getContentPane().setBackground(SystemColor.window);
 		init();
 	}
 
@@ -56,15 +53,12 @@ public class VPrincipal extends JFrame {
 		setJMenuBar(menuBar);
 		
 		mntmPedido = new JMenuItem(MNTM_PEDIDO);
-		mntmPedido.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		menuBar.add(mntmPedido);
 		
 		mntmVenta = new JMenuItem(MNTM_VENTA);
-		mntmVenta.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		menuBar.add(mntmVenta);
 		
 		mntmCerrar = new JMenuItem(MNTM_CERRAR);
-		mntmCerrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		mntmCerrar.setHorizontalAlignment(SwingConstants.RIGHT);
 		menuBar.add(mntmCerrar);
 	}
@@ -80,7 +74,7 @@ public class VPrincipal extends JFrame {
 	}
 	
 	public int mostrarConfirmacion(String mensaje, int tipo) {
-		int resp = JOptionPane.showConfirmDialog(this, mensaje, "Confirmación", JOptionPane.YES_NO_OPTION, tipo);
+		int resp = JOptionPane.showConfirmDialog(this, mensaje, "ConfirmaciÃ³n", JOptionPane.YES_NO_OPTION, tipo);
 		
 		return resp;
 	}
