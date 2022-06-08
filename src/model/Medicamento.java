@@ -41,4 +41,34 @@ public class Medicamento {
 		return stock;
 	}
 	
+	public Object[] getRowData(){
+		Object[] data = new Object[5];
+		
+		data[0] = nombre;
+		data[1] = tipo;
+		data[2] = farmaceutica;		
+		data[3] = precio;
+		data[4] = stock;
+		
+		return data;
+	}
+	
+	public Object[] getRowData2(int cantidad){
+		Object[] data = new Object[6];
+		
+		data[0] = nombre;
+		data[1] = tipo;
+		data[2] = farmaceutica;		
+		data[3] = precio;
+		data[4] = stock;
+		data[5] = cantidad;
+		
+		return data;
+	}
+
+	@Override
+	public String toString() {
+		return "id: " + id + ", nombre: " + nombre + ", tipo: " + tipo + ", farmaceutica: " + farmaceutica
+				+ ", precio: " + precio + ", stock: " + stock;
+	}
 }
