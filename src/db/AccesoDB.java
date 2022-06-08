@@ -10,7 +10,7 @@ public class AccesoDB {
 	
 	public AccesoDB() {
 		driver = "org.sqlite.JDBC";
-		url = "jdbc:sqlite:db/BBDD_PINTEGRADOR";
+		url = "jdbc:sqlite:db/BBDD_PINTEGRADOR.db";
 	}
 	
 	public Connection getConexion() throws ClassNotFoundException, SQLException {
