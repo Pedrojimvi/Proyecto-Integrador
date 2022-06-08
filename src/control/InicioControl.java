@@ -78,6 +78,12 @@ public class InicioControl implements ActionListener {
 				if (usuario.trim().isEmpty() || pwd.trim().isEmpty() || confirPwd.trim().isEmpty()) {
 					vCrear.mostrarError("Debes rellenar todos los campos");
 				}
+				else if (usuario.length() < 4 || usuario.length() > 20) {
+					vInicio.mostrarError("El nombre de usuario debe tener entre 4 y 20 caracteres");
+				}
+				else if (pwd.length() < 8 || pwd.length() > 25) {
+					vInicio.mostrarError("La contarseña debe tener entre 8 y 25 caracteres");
+				}
 				else {
 					user = fPersistencia.validarUsuario(usuario);
 					if (user == null) {
