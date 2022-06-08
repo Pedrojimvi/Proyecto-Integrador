@@ -45,16 +45,25 @@ public class InicioControl implements ActionListener {
 				if (nombreUsuario.trim().isEmpty() || contrasena.trim().isEmpty()) {
 					vInicio.mostrarError("Debes rellenar los campos 'Usuario' y  'Password'");
 					
-				}else {
+				}
+				else {
 					user = fPersistencia.validarUsuario(nombreUsuario);
 					
 					if (user != null) {
 						if (contrasena.equals(user.getPassword())) {
 							abrirPrincipal();
-						}else {
+							
+							int id = fPersistencia.obtenerIdEmple(nombreUsuario);
+							
+							if (id != 0) {
+								fPersistencia.insertarId(id);
+							}
+						}
+						else {
 							vInicio.mostrarError("La contraseña introducida no es correcta");
 						}
-					}else {
+					}
+					else {
 						vInicio.mostrarError("El usuario introducido no está registrado");
 					}
 				}
@@ -68,7 +77,8 @@ public class InicioControl implements ActionListener {
 				String confirPwd = vCrear.getCContrasena();
 				if (usuario.trim().isEmpty() || pwd.trim().isEmpty() || confirPwd.trim().isEmpty()) {
 					vCrear.mostrarError("Debes rellenar todos los campos");
-				}else {
+				}
+				else {
 					user = fPersistencia.validarUsuario(usuario);
 					if (user == null) {
 						boolean b = vCrear.comprobarContrasenas();
@@ -80,17 +90,15 @@ public class InicioControl implements ActionListener {
 								crearUsuario();
 							}
 							
-						}else {
+						}
+						else {
 							vCrear.mostrarError("La contraseña debe coincidir con el campo 'Confirmar password'");
 						}
-					}else {
+					}
+					else {
 						vCrear.mostrarError("El usuario que está intentando introducir ya está registrado. Por favor, introduzca otro");
 					}
-						
-					
 				}
-				
-				
 			}
 			else if (ev.getActionCommand().equals(VCrear.BTN_VOLVER)) {
 				volverInicio();
@@ -111,19 +119,19 @@ public class InicioControl implements ActionListener {
 				vender();
 			}
 			else if (ev.getActionCommand().equals(PPedido.BTN_FILTRAR)) {
-				filtrarPedido();
+				pPedido.filtrarPedido(fPersistencia);
 			}
 			else if (ev.getActionCommand().equals(PPedido.BTN_ANADIR)) {
-				anadir();
+				pPedido.anadir();
 			}
 			else if (ev.getActionCommand().equals(PPedido.BTN_LIMPIAR)) {
-				//pPedido.resetearValores();
+				pPedido.resetearValores(false);
 			}
 			else if (ev.getActionCommand().equals(PPedido.BTN_PEDIDO)) {
-				pedir();
+				pPedido.pedir(fPersistencia);
 			}
 			else if (ev.getActionCommand().equals(PPedido.BTN_QUITAR)) {
-				quitar();
+				pPedido.quitar();
 			}
 		}
 		else if (ev.getSource() instanceof JMenuItem) {
@@ -143,14 +151,6 @@ public class InicioControl implements ActionListener {
 				}		
 			}
 		}
-	}
-
-	private void pedir() {
-		
-	}
-
-	private void filtrarPedido() {
-		
 	}
 
 	private void vender() {
@@ -175,7 +175,7 @@ public class InicioControl implements ActionListener {
 	}
 
 	private void mostrarPedido() {
-		//pPedido.resetearValores();
+		pPedido.resetearValores(true);
 		vPrincipal.cargarPanel(pPedido);
 	}
 
@@ -199,5 +199,9 @@ public class InicioControl implements ActionListener {
 		vInicio.dispose();
 		vInicio.limpiarDatos();
 		vCrear.hacerVisible();
+	}
+
+	public FarmaciaPersistencia getfPersistencia() {
+		return fPersistencia;
 	}
 }
