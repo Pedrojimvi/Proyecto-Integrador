@@ -1,4 +1,4 @@
-package com.dam.persistencia;
+package com.dam.db.persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -490,4 +490,121 @@ public class FarmaciaPersistencia {
 				
 		return idMedCant;		
 	}
+
+
+public void modificarTblVenta(ArrayList<Object> idMedCant) {
+	int idP = obtenerIdP();
+	
+	if (idP != 0) {
+		String query = "INSERT INTO " + Medicamento_VentaContract.NOM_TAB + " (" + Medicamento_VentaContract.ID_MED + ", " + Medicamento_VentaContract.ID_VENTA + 
+				", " + Medicamento_VentaContract.CANTIDAD + ") VALUES (?, ?, ?)";
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+				
+		try {
+			con = acceso.getConexion();
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, (int) idMedCant.toArray()[0]);
+			pstmt.setInt(2, idP);
+			pstmt.setInt(3, (int) idMedCant.toArray()[1]);
+			pstmt.executeUpdate();
+		}
+		catch (ClassNotFoundException e) {
+			System.out.println("El driver indicado no es correcto");
+			e.printStackTrace();
+		}
+		catch (SQLException e) {
+			System.out.println("Error en la base de datos");
+			e.printStackTrace();
+			
+		}
+		finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+private int obtenerIdV() {
+	String query = "SELECT " + VentaContract.ID + " FROM " + VentaContract.NOM_TAB;
+	
+	int idP = 0;
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rslt = null;
+			
+	try {
+		con = acceso.getConexion();
+		pstmt = con.prepareStatement(query);
+		rslt = pstmt.executeQuery();
+		
+		while (rslt.next()) {
+			idP = rslt.getInt(VentaContract.ID);
+		}
+	}
+	catch (ClassNotFoundException e) {
+		System.out.println("El driver indicado no es correcto");
+		e.printStackTrace();
+	}
+	catch (SQLException e) {
+		System.out.println("Error en la base de datos");
+		e.printStackTrace();
+		
+	}
+	finally {
+		try {
+			if(rslt != null) rslt.close();
+			if(pstmt != null) pstmt.close();
+			if(con != null) con.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+			
+	return idP;
+}
+
+public void hacerVenta(int cantidad, String nombre) {
+
+	String query = "UPDATE " + MedicamentoContract.NOM_TAB + " SET " + MedicamentoContract.STOCK + " = " + MedicamentoContract.STOCK + 
+			" + ? WHERE " + MedicamentoContract.NOMBRE + " = ?";
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	
+	try {
+		con = acceso.getConexion();
+		pstmt = con.prepareStatement(query);
+		pstmt.setInt(1, cantidad);
+		pstmt.setString(2, nombre);
+		pstmt.executeUpdate();
+	}
+	catch (ClassNotFoundException e) {
+		System.out.println("El driver indicado no es correcto");
+		e.printStackTrace();
+	}
+	catch (SQLException e) {
+		System.out.println("Error en la base de datos");
+		e.printStackTrace();
+	
+	}
+	finally {
+		try {
+			if(pstmt != null) pstmt.close();
+			if(con != null) con.close();
+		
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
 }
