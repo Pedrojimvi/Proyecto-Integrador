@@ -1,4 +1,4 @@
-package com.dam.persistencia;
+package persistencia;
 
 public class PedidoContract {
 	public static final String ID_EMP = "ID_EMPLEADO";

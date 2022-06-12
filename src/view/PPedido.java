@@ -1,4 +1,4 @@
-package com.dam.view;
+package view;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -11,10 +11,10 @@ import java.util.Iterator;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import com.dam.control.InicioControl;
-import com.dam.model.Medicamento;
-import com.dam.persistencia.FarmaciaPersistencia;
-import com.dam.persistencia.MedicamentoContract;
+import control.InicioControl;
+import model.Medicamento;
+import persistencia.FarmaciaPersistencia;
+import persistencia.MedicamentoContract;
 
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;

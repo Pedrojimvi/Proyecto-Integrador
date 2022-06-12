@@ -1,4 +1,4 @@
-package com.dam.view;
+package view;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
-import com.dam.control.InicioControl;
+import control.InicioControl;
 
 import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
@@ -19,7 +19,7 @@ public class VPrincipal extends JFrame {
 	static final int ALTO = 550;
 	public static final String MNTM_PEDIDO = "Pedido";
 	public static final String MNTM_VENTA = "Venta";
-	public static final String MNTM_CERRAR = "Cerrar Sesión";
+	public static final String MNTM_CERRAR = "Cerrar Sesion";
 	
 	private JMenuItem mntmCerrar;
 	private JMenuItem mntmVenta;
@@ -74,7 +74,7 @@ public class VPrincipal extends JFrame {
 	}
 	
 	public int mostrarConfirmacion(String mensaje, int tipo) {
-		int resp = JOptionPane.showConfirmDialog(this, mensaje, "Confirmación", JOptionPane.YES_NO_OPTION, tipo);
+		int resp = JOptionPane.showConfirmDialog(this, mensaje, "Confirmacion", JOptionPane.YES_NO_OPTION, tipo);
 		
 		return resp;
 	}

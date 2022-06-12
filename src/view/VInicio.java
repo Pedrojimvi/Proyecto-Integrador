@@ -1,4 +1,4 @@
-package com.dam.view;
+package view;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.dam.control.InicioControl;
+import control.InicioControl;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -16,7 +16,7 @@ import javax.swing.JButton;
 public class VInicio extends JFrame {
 	private static final int ANCHO = 400;
 	private static final int ALTO = 250;
-	public static final String BTN_INICIAR = "Iniciar Sesión";
+	public static final String BTN_INICIAR = "Iniciar Sesion";
 	public static final String BTN_CREAR = "Crear Usuario";
 	
 	private JTextField txtUsuario;

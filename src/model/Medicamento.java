@@ -1,4 +1,4 @@
-package com.dam.model;
+package model;
 
 public class Medicamento {
 	private int id;

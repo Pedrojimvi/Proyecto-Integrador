@@ -1,4 +1,4 @@
-package com.dam.control;
+package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 
-import com.dam.view.VInicio;
-import com.dam.view.VPrincipal;
-import com.dam.persistencia.FarmaciaPersistencia;
-import com.dam.model.Usuario;
-import com.dam.view.PPedido;
-import com.dam.view.PVenta;
-import com.dam.view.VCrear;
+import view.VInicio;
+import view.VPrincipal;
+import persistencia.FarmaciaPersistencia;
+import model.Usuario;
+import view.PPedido;
+import view.PVenta;
+import view.VCrear;
 
 public class InicioControl implements ActionListener {
 	
@@ -23,6 +23,7 @@ public class InicioControl implements ActionListener {
 	private PPedido pPedido;
 	private PVenta pVenta;
 	private FarmaciaPersistencia fPersistencia;
+	private int id;
 	
 	public InicioControl(VInicio vInicio, VPrincipal vPrincipal, VCrear vCrear, PPedido pPedido, PVenta pVenta, FarmaciaPersistencia fPersistencia) {
 		this.vInicio = vInicio;
@@ -36,7 +37,7 @@ public class InicioControl implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent ev) {
 		Usuario user = null;
-		
+	
 		if (ev.getSource() instanceof JButton) {
 			if (ev.getActionCommand().equals(VInicio.BTN_INICIAR)) {
 				String nombreUsuario = vInicio.getNomUser();
@@ -53,10 +54,11 @@ public class InicioControl implements ActionListener {
 						if (contrasena.equals(user.getPassword())) {
 							abrirPrincipal();
 							
-							int id = fPersistencia.obtenerIdEmple(nombreUsuario);
+							id = fPersistencia.obtenerIdEmple(nombreUsuario);
 							
 							if (id != 0) {
 								fPersistencia.insertarId(id);
+								
 							}
 						}
 						else {
@@ -110,19 +112,21 @@ public class InicioControl implements ActionListener {
 				volverInicio();
 			}
 			else if (ev.getActionCommand().equals(PVenta.BTN_FILTRAR)) {
-				filtrarVenta();
+				pVenta.filtrarVenta(fPersistencia);
 			}
 			else if (ev.getActionCommand().equals(PVenta.BTN_ANADIR)) {
-				anadir();
+				pVenta.anadir();
 			}
-			else if (ev.getActionCommand().equals(PVenta.BTN_LIMPIAR)) {
-				//pVenta.resetearValores();
+			else if (ev.getActionCommand().equals(PVenta.BTN_LIMPIAR_VENTA)) {
+				pVenta.resetearValores(false);
 			}
 			else if (ev.getActionCommand().equals(PVenta.BTN_QUITAR)) {
-				quitar();
+				pVenta.quitar();
 			}
 			else if (ev.getActionCommand().equals(PVenta.BTN_VENTA)) {
-				vender();
+				String tPago= pVenta.tipoDePago();
+				fPersistencia.insertarTablaVenta(id, tPago);
+				pVenta.venta(fPersistencia);
 			}
 			else if (ev.getActionCommand().equals(PPedido.BTN_FILTRAR)) {
 				pPedido.filtrarPedido(fPersistencia);
@@ -159,24 +163,14 @@ public class InicioControl implements ActionListener {
 		}
 	}
 
-	private void vender() {
-		
-	}
+	
+ //insert into asistencia(dni, fechahora) values ('11111111', datetime('now'));
+	
 
-	private void quitar() {
-		
-	}
-
-	private void anadir() {
-		
-	}
-
-	private void filtrarVenta() {
-		
-	}
+	
 
 	private void mostrarVenta() {
-		//pVenta.resetearValores();
+		pVenta.resetearValores(true);
 		vPrincipal.cargarPanel(pVenta);
 	}
 

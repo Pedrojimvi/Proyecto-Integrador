@@ -1,4 +1,4 @@
-package com.dam.view;
+package view;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.dam.control.InicioControl;
+import control.InicioControl;
 
 public class VCrear extends JFrame {
 	private static final int ANCHO = 400;
@@ -122,6 +122,6 @@ public class VCrear extends JFrame {
 	}
 
 	public void mostrarMensaje(String mensaje) {
-		JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, mensaje, "Informacion", JOptionPane.INFORMATION_MESSAGE);
 	}
 }

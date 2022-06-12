@@ -1,4 +1,4 @@
-package com.dam.persistencia;
+package persistencia;
 
 public class Medicamento_PedidoContract {
 	public static final String ID_MED = "ID_MEDICAMENTO";

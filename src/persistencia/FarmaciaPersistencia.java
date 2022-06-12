@@ -1,4 +1,4 @@
-package com.dam.db.persistencia;
+package persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.dam.db.AccesoDB;
-import com.dam.model.Medicamento;
-import com.dam.model.Usuario;
+import db.AccesoDB;
+import model.Medicamento;
+import model.Usuario;
 
 public class FarmaciaPersistencia {
 	private AccesoDB acceso;
@@ -224,6 +224,79 @@ public class FarmaciaPersistencia {
 				nom = rslt.getString(MedicamentoContract.NOMBRE);
 				tipo = rslt.getString(MedicamentoContract.TIPO);
 				farma = rslt.getString(MedicamentoContract.FARMACEUTICA);
+				precio = rslt.getDouble(MedicamentoContract.PRECIO);
+				stock = rslt.getInt(MedicamentoContract.STOCK);
+				
+				med = new Medicamento(id, nom, tipo, farma, precio, stock);
+				
+				listMed.add(med);
+			}
+		}
+		catch (ClassNotFoundException e) {
+			System.out.println("El driver indicado no es correcto");
+			e.printStackTrace();
+		}
+		catch (SQLException e) {
+			System.out.println("Error en la base de datos");
+			e.printStackTrace();
+			
+		}
+		finally {
+			try {
+				if(rslt != null) rslt.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listMed;
+	}
+	
+	public ArrayList<Medicamento> seleccionarMedVenta(String nom, String tipo, String where) {
+		ArrayList<Medicamento> listMed = new ArrayList<Medicamento>();
+		
+		String query = "SELECT " + MedicamentoContract.ID + ", "  + MedicamentoContract.NOMBRE + ", "  + MedicamentoContract.TIPO + ", "  + MedicamentoContract.FARMACEUTICA + ", " 
+				 + MedicamentoContract.PRECIO + ", "  + MedicamentoContract.STOCK + " FROM " + MedicamentoContract.NOM_TAB ;
+		
+		if (!tipo.equals("Todos") || !nom.isBlank()) {
+			query +=  " WHERE " + where ;
+		}
+		
+		query +=  " ORDER BY " + MedicamentoContract.NOMBRE;
+		
+				
+		Medicamento med;
+		int id;
+		String farma;
+        double precio;
+        int stock;
+		int var = 1;
+        
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rslt = null;
+				
+		try {
+			con = acceso.getConexion();
+			pstmt = con.prepareStatement(query);
+			if (!nom.isBlank()) {
+				pstmt.setString(var, nom + "%");
+				var++;
+			}
+			if (!tipo.equals("Todos")) {
+				pstmt.setString(var, tipo);
+				var++;
+			}
+			
+			rslt = pstmt.executeQuery();
+			
+			while (rslt.next()) {
+				id = rslt.getInt(MedicamentoContract.ID);
+				nom = rslt.getString(MedicamentoContract.NOMBRE);
+				tipo = rslt.getString(MedicamentoContract.TIPO);
+				farma= rslt.getString(MedicamentoContract.FARMACEUTICA);
 				precio = rslt.getDouble(MedicamentoContract.PRECIO);
 				stock = rslt.getInt(MedicamentoContract.STOCK);
 				
@@ -491,11 +564,45 @@ public class FarmaciaPersistencia {
 		return idMedCant;		
 	}
 
+	public void insertarTablaVenta(int id, String tPago) {
+		String query ="INSERT INTO " + VentaContract.NOM_TAB + " (" + VentaContract.ID_EMP + ", " + VentaContract.TIP_PAGO + 
+				", " + VentaContract.FECH + ") VALUES (?, ?, DATETIME('NOW'))";
 
-public void modificarTblVenta(ArrayList<Object> idMedCant) {
-	int idP = obtenerIdP();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+				
+		try {
+			con = acceso.getConexion();
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, id);
+			pstmt.setString(2, tPago);
+			pstmt.executeUpdate();
+		}
+		catch (ClassNotFoundException e) {
+			System.out.println("El driver indicado no es correcto");
+			e.printStackTrace();
+		}
+		catch (SQLException e) {
+			System.out.println("Error en la base de datos");
+			e.printStackTrace();
+			
+		}
+		finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void modificarTblVenta(ArrayList<Object> idMedCant) {
+	int idV = obtenerIdV();
 	
-	if (idP != 0) {
+	if (idV != 0) {
 		String query = "INSERT INTO " + Medicamento_VentaContract.NOM_TAB + " (" + Medicamento_VentaContract.ID_MED + ", " + Medicamento_VentaContract.ID_VENTA + 
 				", " + Medicamento_VentaContract.CANTIDAD + ") VALUES (?, ?, ?)";
 		
@@ -506,7 +613,7 @@ public void modificarTblVenta(ArrayList<Object> idMedCant) {
 			con = acceso.getConexion();
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, (int) idMedCant.toArray()[0]);
-			pstmt.setInt(2, idP);
+			pstmt.setInt(2, idV);
 			pstmt.setInt(3, (int) idMedCant.toArray()[1]);
 			pstmt.executeUpdate();
 		}
@@ -531,10 +638,11 @@ public void modificarTblVenta(ArrayList<Object> idMedCant) {
 	}
 }
 
-private int obtenerIdV() {
+ 
+ private int obtenerIdV() {
 	String query = "SELECT " + VentaContract.ID + " FROM " + VentaContract.NOM_TAB;
 	
-	int idP = 0;
+	int idV = 0;
 	
 	Connection con = null;
 	PreparedStatement pstmt = null;
@@ -546,7 +654,7 @@ private int obtenerIdV() {
 		rslt = pstmt.executeQuery();
 		
 		while (rslt.next()) {
-			idP = rslt.getInt(VentaContract.ID);
+			idV = rslt.getInt(VentaContract.ID);
 		}
 	}
 	catch (ClassNotFoundException e) {
@@ -569,17 +677,17 @@ private int obtenerIdV() {
 		}
 	}
 			
-	return idP;
+	return idV;
 }
 
-public void hacerVenta(int cantidad, String nombre) {
+ public void hacerVenta(int cantidad, String nombre) {
 
 	String query = "UPDATE " + MedicamentoContract.NOM_TAB + " SET " + MedicamentoContract.STOCK + " = " + MedicamentoContract.STOCK + 
-			" + ? WHERE " + MedicamentoContract.NOMBRE + " = ?";
+			" - ? WHERE " + MedicamentoContract.NOMBRE + " = ?";
 	
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	
+			
 	try {
 		con = acceso.getConexion();
 		pstmt = con.prepareStatement(query);
@@ -594,17 +702,18 @@ public void hacerVenta(int cantidad, String nombre) {
 	catch (SQLException e) {
 		System.out.println("Error en la base de datos");
 		e.printStackTrace();
-	
+		
 	}
 	finally {
 		try {
 			if(pstmt != null) pstmt.close();
 			if(con != null) con.close();
-		
-		}
-		catch (SQLException e) {
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 }
+
+
 }

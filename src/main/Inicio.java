@@ -1,14 +1,14 @@
-package com.dam.main;
+package main;
 
 import java.awt.EventQueue;
 
-import com.dam.control.InicioControl;
-import com.dam.persistencia.FarmaciaPersistencia;
-import com.dam.view.VInicio;
-import com.dam.view.VPrincipal;
-import com.dam.view.PPedido;
-import com.dam.view.PVenta;
-import com.dam.view.VCrear;
+import control.InicioControl;
+import persistencia.FarmaciaPersistencia;
+import view.VInicio;
+import view.VPrincipal;
+import view.PPedido;
+import view.PVenta;
+import view.VCrear;
 
 public class Inicio {
 	public static void main(String[] args) {
