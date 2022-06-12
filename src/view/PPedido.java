@@ -27,6 +27,7 @@ import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import javax.swing.border.MatteBorder;
 
 public class PPedido extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
@@ -63,6 +64,7 @@ public class PPedido extends JPanel {
 	private JScrollPane scrpTblPe;
 	
 	public PPedido() {
+		setBackground(new Color(204, 255, 153));
 		setLayout(null);
 		
 		JLabel lblPedido = new JLabel("REALIZAR PEDIDO");
@@ -112,27 +114,40 @@ public class PPedido extends JPanel {
 		add(spnMax);
 		
 		rdbtnStock = new JRadioButton("Stock");
+		rdbtnStock.setBackground(new Color(204, 255, 153));
 		rdbtnStock.setBounds(221, 51, 77, 23);
 		add(rdbtnStock);
 		
 		btnFiltrar = new JButton(BTN_FILTRAR);
+		btnFiltrar.setForeground(new Color(255, 255, 255));
+		btnFiltrar.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnFiltrar.setBorderPainted(false);
+		btnFiltrar.setBackground(new Color(102, 102, 0));
 		btnFiltrar.setBounds(270, 81, 77, 27);
 		add(btnFiltrar);
 		
 		spnCantidad = new JSpinner();
 		spnCantidad.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
-		spnCantidad.setBounds(196, 301, 53, 20);
+		spnCantidad.setBounds(168, 301, 53, 20);
 		add(spnCantidad);
 		
 		JLabel lblCantidad = new JLabel("Cantidad:");
-		lblCantidad.setBounds(38, 304, 89, 14);
+		lblCantidad.setBounds(115, 304, 89, 14);
 		add(lblCantidad);
 		
 		btnAnadir = new JButton(BTN_ANADIR);
+		btnAnadir.setForeground(new Color(255, 255, 255));
+		btnAnadir.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnAnadir.setBorderPainted(false);
+		btnAnadir.setBackground(new Color(102, 102, 0));
 		btnAnadir.setBounds(28, 335, 136, 23);
 		add(btnAnadir);
 		
 		btnLimpiar = new JButton(BTN_LIMPIAR);
+		btnLimpiar.setBackground(new Color(102, 102, 0));
+		btnLimpiar.setBorderPainted(false);
+		btnLimpiar.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnLimpiar.setForeground(new Color(255, 255, 255));
 		btnLimpiar.setBounds(192, 333, 89, 23);
 		add(btnLimpiar);
 		
@@ -143,16 +158,26 @@ public class PPedido extends JPanel {
 		add(sprt);
 		
 		btnQuitar = new JButton(BTN_QUITAR);
+		btnQuitar.setForeground(new Color(255, 255, 255));
+		btnQuitar.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnQuitar.setBorderPainted(false);
+		btnQuitar.setBackground(new Color(102, 102, 0));
 		btnQuitar.setBounds(409, 298, 141, 23);
 		add(btnQuitar);
 		
 		btnPedido = new JButton(BTN_PEDIDO);
+		btnPedido.setBorderPainted(false);
+		btnPedido.setBackground(new Color(102, 102, 0));
+		btnPedido.setForeground(new Color(255, 255, 255));
+		btnPedido.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnPedido.setBounds(560, 296, 136, 23);
 		add(btnPedido);
 		
 		setSize(ANCHO_PANEL, ALTO_PANEL);
 		
 		txtNom = new JTextField();
+		txtNom.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtNom.setBackground(new Color(204, 255, 153));
 		txtNom.setBounds(111, 111, 114, 21);
 		add(txtNom);
 		txtNom.setColumns(10);

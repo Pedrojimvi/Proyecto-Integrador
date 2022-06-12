@@ -25,6 +25,8 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 
 public class PVenta extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
@@ -58,11 +60,12 @@ public class PVenta extends JPanel {
 	private JComboBox cmbPago;
 	
 	public PVenta() {
+		setBackground(new Color(204, 255, 153));
 		setLayout(null);
 		
 		JLabel lblVenta = new JLabel("VENTA PRODUCTOS");
 		lblVenta.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		lblVenta.setBounds(289, 24, 140, 22);
+		lblVenta.setBounds(289, 24, 197, 22);
 		add(lblVenta);
 		
 		JLabel lblTipo = new JLabel("Tipo:");
@@ -70,6 +73,7 @@ public class PVenta extends JPanel {
 		add(lblTipo);
 		
 		cmbTipo = new JComboBox();
+		cmbTipo.setBackground(new Color(204, 255, 153));
 		cmbTipo.addItem("Todos");
 		cmbTipo.setBounds(117, 63, 78, 22);
 		add(cmbTipo);
@@ -79,23 +83,37 @@ public class PVenta extends JPanel {
 		add(lblNombre);
 		
 		btnFiltrar = new JButton(BTN_FILTRAR);
+		btnFiltrar.setForeground(new Color(255, 255, 255));
+		btnFiltrar.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnFiltrar.setBorderPainted(false);
+		btnFiltrar.setBackground(new Color(102, 102, 0));
 		btnFiltrar.setBounds(254, 63, 89, 23);
 		add(btnFiltrar);
 		
 		JLabel lblCantidad = new JLabel("Cantidad:");
-		lblCantidad.setBounds(49, 273, 95, 14);
+		lblCantidad.setBounds(100, 273, 95, 14);
 		add(lblCantidad);
 		
 		spnCantidad = new JSpinner();
+		spnCantidad.setBorder(new EmptyBorder(0, 0, 0, 0));
+		spnCantidad.setBackground(new Color(255, 255, 255));
 		spnCantidad.setModel(new SpinnerNumberModel(1, 1, null, 1));
 		spnCantidad.setBounds(162, 270, 56, 20);
 		add(spnCantidad);
 		
 		btnAnadir = new JButton(BTN_ANADIR);
+		btnAnadir.setBorderPainted(false);
+		btnAnadir.setBackground(new Color(102, 102, 0));
+		btnAnadir.setForeground(new Color(255, 255, 255));
+		btnAnadir.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnAnadir.setBounds(49, 303, 140, 23);
 		add(btnAnadir);
 		
 		btnLimpiar = new JButton(BTN_LIMPIAR_VENTA);
+		btnLimpiar.setForeground(new Color(255, 255, 255));
+		btnLimpiar.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnLimpiar.setBorderPainted(false);
+		btnLimpiar.setBackground(new Color(102, 102, 0));
 		btnLimpiar.setBounds(201, 303, 89, 23);
 		add(btnLimpiar);
 		
@@ -107,21 +125,32 @@ public class PVenta extends JPanel {
 		add(sprt);
 		
 		btnQuitar = new JButton(BTN_QUITAR);
+		btnQuitar.setForeground(new Color(255, 255, 255));
+		btnQuitar.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnQuitar.setBorderPainted(false);
+		btnQuitar.setBackground(new Color(102, 102, 0));
 		btnQuitar.setBounds(413, 303, 135, 23);
 		add(btnQuitar);
 		
 		btnVenta = new JButton(BTN_VENTA);
+		btnVenta.setBorderPainted(false);
+		btnVenta.setBackground(new Color(102, 102, 0));
+		btnVenta.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnVenta.setForeground(new Color(255, 255, 255));
 		btnVenta.setBounds(556, 303, 125, 23);
 		add(btnVenta);
 		
 		setSize(ANCHO_PANEL, ALTO_PANEL);
 		
 		txtNom = new JTextField();
+		txtNom.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtNom.setBackground(new Color(204, 255, 153));
 		txtNom.setBounds(117, 92, 114, 21);
 		add(txtNom);
 		txtNom.setColumns(10);
 		
 		JScrollPane scrpTblPr_1 = new JScrollPane();
+		scrpTblPr_1.setBackground(Color.WHITE);
 		scrpTblPr_1.setBounds(33, 131, 304, 129);
 		add(scrpTblPr_1);
 		
@@ -140,6 +169,7 @@ public class PVenta extends JPanel {
 		add(lblTipoPago);
 		
 		cmbPago = new JComboBox();
+		cmbPago.setBackground(new Color(204, 255, 153));
 		cmbPago.setModel(new DefaultComboBoxModel(new String[] {"TARJETA", "EFECTIVO"}));
 		cmbPago.setBounds(525, 269, 125, 22);
 		add(cmbPago);

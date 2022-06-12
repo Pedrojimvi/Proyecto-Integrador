@@ -1,17 +1,22 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 
 import control.InicioControl;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class VInicio extends JFrame {
 	private static final int ANCHO = 400;
@@ -23,8 +28,11 @@ public class VInicio extends JFrame {
 	private JPasswordField txtPwd;
 	private JButton btnIniciarSesion;
 	private JButton btnCrearUsuario;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	public VInicio() {
+		getContentPane().setBackground(new Color(204, 255, 153));
 		init();
 	}
 
@@ -34,31 +42,63 @@ public class VInicio extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(86, 33, 60, 17);
+		lblUsuario.setBounds(214, 107, 60, 17);
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(86, 87, 69, 17);
+		lblPassword.setBounds(201, 167, 69, 17);
 		getContentPane().add(lblPassword);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(203, 31, 114, 21);
+		txtUsuario.setOpaque(false);
+		txtUsuario.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtUsuario.setBackground(new Color(204, 255, 153));
+		txtUsuario.setBounds(255, 105, 114, 21);
 		getContentPane().add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtPwd = new JPasswordField();
-		txtPwd.setBounds(203, 85, 114, 21);
+		txtPwd.setOpaque(false);
+		txtPwd.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtPwd.setBackground(new Color(204, 255, 153));
+		txtPwd.setBounds(255, 165, 114, 21);
 		getContentPane().add(txtPwd);
 		
 		btnIniciarSesion = new JButton(BTN_INICIAR);
-		btnIniciarSesion.setBounds(57, 148, 123, 27);
+		btnIniciarSesion.setForeground(new Color(255, 255, 255));
+		btnIniciarSesion.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
+		btnIniciarSesion.setBorderPainted(false);
+		btnIniciarSesion.setBackground(new Color(102, 102, 0));
+		btnIniciarSesion.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btnIniciarSesion.setBounds(135, 215, 132, 42);
 		getContentPane().add(btnIniciarSesion);
 		
 		btnCrearUsuario = new JButton(BTN_CREAR);
-		btnCrearUsuario.setBounds(225, 148, 123, 27);
+		btnCrearUsuario.setBorderPainted(false);
+		btnCrearUsuario.setBackground(new Color(102, 102, 0));
+		btnCrearUsuario.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
+		btnCrearUsuario.setForeground(new Color(255, 255, 255));
+		btnCrearUsuario.setBounds(277, 215, 146, 42);
 		getContentPane().add(btnCrearUsuario);
 		
-		setSize(ANCHO, ALTO);
+		JLabel lblNewLabel = new JLabel("PHARMALAND");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel.setBackground(new Color(204, 255, 153));
+		lblNewLabel.setBounds(165, 42, 301, 31);
+		getContentPane().add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(VInicio.class.getResource("/Logo/Logo5.png")));
+		lblNewLabel_1.setBounds(29, 90, 125, 114);
+		getContentPane().add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(VInicio.class.getResource("/Logo/Logo5.png")));
+		lblNewLabel_2.setBounds(404, 92, 140, 112);
+		getContentPane().add(lblNewLabel_2);
+		
+		
+		setSize(570, 340);
 		centrarVentana();
 	}
 	

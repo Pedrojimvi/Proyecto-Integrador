@@ -13,6 +13,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 
 public class VPrincipal extends JFrame {
 	static final int ANCHO = 750;
@@ -27,6 +30,8 @@ public class VPrincipal extends JFrame {
 	private JScrollPane scrpContenedor;
 	
 	public VPrincipal() {
+		setBackground(new Color(204, 255, 153));
+		getContentPane().setBackground(new Color(204, 255, 153));
 		init();
 	}
 
@@ -36,6 +41,9 @@ public class VPrincipal extends JFrame {
 		getContentPane().setLayout(null);
 		
 		scrpContenedor = new JScrollPane();
+		scrpContenedor.setOpaque(false);
+		scrpContenedor.setBorder(new EmptyBorder(0, 0, 0, 0));
+		scrpContenedor.setBackground(new Color(204, 255, 153));
 		scrpContenedor.setBounds(12, 12, PPedido.ANCHO_PANEL, PPedido.ALTO_PANEL);
 		getContentPane().add(scrpContenedor);
 		
@@ -50,15 +58,28 @@ public class VPrincipal extends JFrame {
 		setLocation((pantalla.width - ventana.width) / 2,  (pantalla.height - ventana.height) / 2);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(102, 102, 0));
 		setJMenuBar(menuBar);
 		
 		mntmPedido = new JMenuItem(MNTM_PEDIDO);
+		mntmPedido.setForeground(new Color(255, 255, 255));
+		mntmPedido.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		mntmPedido.setOpaque(true);
+		mntmPedido.setBackground(new Color(102, 102, 0));
 		menuBar.add(mntmPedido);
 		
 		mntmVenta = new JMenuItem(MNTM_VENTA);
+		mntmVenta.setBackground(new Color(102, 102, 0));
+		mntmVenta.setOpaque(true);
+		mntmVenta.setForeground(new Color(255, 255, 255));
+		mntmVenta.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		menuBar.add(mntmVenta);
 		
 		mntmCerrar = new JMenuItem(MNTM_CERRAR);
+		mntmCerrar.setOpaque(true);
+		mntmCerrar.setForeground(new Color(255, 255, 255));
+		mntmCerrar.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		mntmCerrar.setBackground(new Color(102, 102, 0));
 		mntmCerrar.setHorizontalAlignment(SwingConstants.RIGHT);
 		menuBar.add(mntmCerrar);
 	}

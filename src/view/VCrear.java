@@ -11,6 +11,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import control.InicioControl;
+import java.awt.Color;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 
 public class VCrear extends JFrame {
 	private static final int ANCHO = 400;
@@ -25,6 +29,7 @@ public class VCrear extends JFrame {
 	private JPasswordField txtPwdC;
 
 	public VCrear() {
+		getContentPane().setBackground(new Color(204, 255, 153));
 		init();
 		centrarVentana();
 	}
@@ -35,36 +40,51 @@ public class VCrear extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(70, 43, 60, 17);
+		lblUsuario.setBounds(119, 41, 60, 17);
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(70, 93, 94, 17);
+		lblPassword.setBounds(108, 91, 94, 17);
 		getContentPane().add(lblPassword);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(224, 39, 114, 21);
+		txtUsuario.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtUsuario.setBackground(new Color(204, 255, 153));
+		txtUsuario.setBounds(162, 39, 114, 21);
 		getContentPane().add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtPwd = new JPasswordField();
-		txtPwd.setBounds(224, 89, 114, 21);
+		txtPwd.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtPwd.setBackground(new Color(204, 255, 153));
+		txtPwd.setBounds(162, 89, 114, 21);
 		getContentPane().add(txtPwd);
 		
 		btnCrear = new JButton(BTN_CREAR);
-		btnCrear.setBounds(74, 213, 105, 27);
+		btnCrear.setBorderPainted(false);
+		btnCrear.setForeground(new Color(255, 255, 255));
+		btnCrear.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnCrear.setBackground(new Color(102, 102, 0));
+		btnCrear.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btnCrear.setBounds(66, 195, 113, 45);
 		getContentPane().add(btnCrear);
 		
 		btnVolver = new JButton(BTN_VOLVER);
-		btnVolver.setBounds(212, 213, 105, 27);
+		btnVolver.setBorderPainted(false);
+		btnVolver.setBackground(new Color(102, 102, 0));
+		btnVolver.setForeground(new Color(255, 255, 255));
+		btnVolver.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnVolver.setBounds(189, 195, 128, 45);
 		getContentPane().add(btnVolver);
 		
 		JLabel lblPasswordC = new JLabel("Confirmar Password:");
-		lblPasswordC.setBounds(70, 147, 136, 17);
+		lblPasswordC.setBounds(66, 147, 136, 17);
 		getContentPane().add(lblPasswordC);
 		
 		txtPwdC = new JPasswordField();
-		txtPwdC.setBounds(224, 145, 114, 21);
+		txtPwdC.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
+		txtPwdC.setBackground(new Color(204, 255, 153));
+		txtPwdC.setBounds(172, 145, 114, 21);
 		getContentPane().add(txtPwdC);
 		
 		setSize(400, 315);
