@@ -32,13 +32,13 @@ public class PPedido extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
 	public static final int ALTO_PANEL = VPrincipal.ALTO - 100;
 	public static final String BTN_FILTRAR = "Filtrar ";
-	public static final String BTN_ANADIR = "Añadir Producto ";
+	public static final String BTN_ANADIR = "Anadir Producto ";
 	public static final String BTN_LIMPIAR = "Limpiar ";
 	public static final String BTN_QUITAR = "Quitar Producto ";
 	public static final String BTN_PEDIDO = "Realizar Pedido";
 	private static final String COL_NOMBRE = "NOMBRE";
 	private static final String COL_TIPO = "TIPO";
-	private static final String COL_FARMACEUTICA = "FARMACÉUTICA";
+	private static final String COL_FARMACEUTICA = "FARMACEUTICA";
 	private static final String COL_PRECIO = "PRECIO";
 	private static final String COL_STOCK = "STOCK";
 	private static final String COL_CANTIDAD = "CANTIDAD";
@@ -85,7 +85,7 @@ public class PPedido extends JPanel {
 		cmbFarma.setBounds(142, 81, 77, 14);
 		add(cmbFarma);
 		
-		JLabel lblFarma = new JLabel("Farmacéutica:");
+		JLabel lblFarma = new JLabel("Farmaceutica:");
 		lblFarma.setBounds(28, 81, 109, 14);
 		add(lblFarma);
 		
@@ -309,7 +309,7 @@ public class PPedido extends JPanel {
     			}
 			}
             else {
-				mostrarMensaje("No hay ningún medicamento con esos filtros", "Error de búsqueda", 1);
+				mostrarMensaje("No hay ningun medicamento con esos filtros", "Error de busqueda", 1);
 			}
 		}
     }
@@ -344,10 +344,10 @@ public class PPedido extends JPanel {
 			dtmMed2.addRow(med.getRowData2((int) spnCantidad.getValue()));
 		}
 		catch (ArrayIndexOutOfBoundsException e) {
-			mostrarMensaje("No hay ningún medicamento seleccionado", "Error al Añadir", 0);
+			mostrarMensaje("No hay medicamento seleccionado", "Error", 0);
 		}
 		catch (NullPointerException e) {
-			mostrarMensaje("No hay ningún medicamento seleccionado", "Error al Añadir", 0);
+			mostrarMensaje("No hay medicamento seleccionado", "Error", 0);
 		}
 	}
 	
@@ -356,7 +356,7 @@ public class PPedido extends JPanel {
 			dtmMed2.removeRow(tblPed.getSelectedRow());
 		}
 			catch (ArrayIndexOutOfBoundsException e) {
-			mostrarMensaje("No hay ningún medicamento seleccionado", "Error al Quitar", 0);
+			mostrarMensaje("No hay medicamento seleccionado", "Error al Quitar", 0);
 		}
 	}
 	
@@ -374,7 +374,7 @@ public class PPedido extends JPanel {
 				fP.modificarTblPedido(fP.obtenerIdMed(nombre, cantidad));
 			}
 			dtmMed2.getDataVector().clear();
-			mostrarMensaje("¡¡¡ Pedido realizado con éxito !!!", "Resultado de operación", 1);
+			mostrarMensaje("Pedido realizado con exito", "Resultado de operacion", 1);
 		}
 		else {
 			mostrarMensaje("No se puede hacer el pedido sin medicamentos", "Error al Hacer Pedido", 0);

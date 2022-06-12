@@ -62,11 +62,11 @@ public class InicioControl implements ActionListener {
 							}
 						}
 						else {
-							vInicio.mostrarError("La contraseña introducida no es correcta");
+							vInicio.mostrarError("Password introducida no es correcta");
 						}
 					}
 					else {
-						vInicio.mostrarError("El usuario introducido no está registrado");
+						vInicio.mostrarError("El usuario introducido no esta registrado");
 					}
 				}
 			}
@@ -84,7 +84,7 @@ public class InicioControl implements ActionListener {
 					vInicio.mostrarError("El nombre de usuario debe tener entre 4 y 20 caracteres");
 				}
 				else if (pwd.length() < 8 || pwd.length() > 25) {
-					vInicio.mostrarError("La contarseña debe tener entre 8 y 25 caracteres");
+					vInicio.mostrarError("Password debe tener entre 8 y 25 caracteres");
 				}
 				else {
 					user = fPersistencia.validarUsuario(usuario);
@@ -100,11 +100,11 @@ public class InicioControl implements ActionListener {
 							
 						}
 						else {
-							vCrear.mostrarError("La contraseña debe coincidir con el campo 'Confirmar password'");
+							vCrear.mostrarError("Password debe coincidir con el campo 'Confirmar password'");
 						}
 					}
 					else {
-						vCrear.mostrarError("El usuario que está intentando introducir ya está registrado. Por favor, introduzca otro");
+						vCrear.mostrarError("El usuario que esta intentando introducir ya esta registrado. Por favor, introduzca otro");
 					}
 				}
 			}
@@ -152,7 +152,7 @@ public class InicioControl implements ActionListener {
 				mostrarVenta();
 			}
 			else if (ev.getActionCommand().equals(VPrincipal.MNTM_CERRAR)) {
-				int resp = vPrincipal.mostrarConfirmacion("Se va a cerrar la sesión ¿desea continuar?", 1);
+				int resp = vPrincipal.mostrarConfirmacion("Se va a cerrar la sesion �desea continuar?", 1);
 				
 				if (resp == 0) {
 					vPrincipal.dispose();
@@ -163,11 +163,7 @@ public class InicioControl implements ActionListener {
 		}
 	}
 
-	
- //insert into asistencia(dni, fechahora) values ('11111111', datetime('now'));
-	
-
-	
+		
 
 	private void mostrarVenta() {
 		pVenta.resetearValores(true);

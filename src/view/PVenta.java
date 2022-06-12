@@ -30,7 +30,7 @@ public class PVenta extends JPanel {
 	public static final int ANCHO_PANEL = VPrincipal.ANCHO - 25;
 	public static final int ALTO_PANEL = VPrincipal.ALTO - 100;
 	public static final String BTN_FILTRAR = "Filtrar";
-	public static final String BTN_ANADIR = "AÃ±adir Producto";
+	public static final String BTN_ANADIR = "Anadir Producto";
 	public static final String BTN_LIMPIAR_VENTA = "Limpiar";
 	public static final String BTN_QUITAR = "Quitar Producto";
 	public static final String BTN_VENTA = "Realizar Venta";
@@ -238,7 +238,7 @@ public class PVenta extends JPanel {
     			}
 			}
             else {
-				mostrarMensaje("No hay ningun medicamento con esos filtros", "Error de busqueda", 1);
+				mostrarMensaje("No hay medicamentos con esos filtros", "Error de busqueda", 1);
 			}
 		}
         
@@ -329,7 +329,7 @@ public class PVenta extends JPanel {
 			
 			if (ventaPosible) {
 				dtmMed2.getDataVector().clear();
-				mostrarMensaje("¡¡¡ Venta realizada con exito !!!", "Resultado de operacion", 1);
+				mostrarMensaje("Venta realizada con exito", "Resultado de operacion", 1);
 			}
 			
 		}
