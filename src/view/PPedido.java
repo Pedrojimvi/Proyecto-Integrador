@@ -75,7 +75,7 @@ public class PPedido extends JPanel {
 		
 		cmbTipo = new JComboBox();
 		cmbTipo.addItem("Todos");
-		cmbTipo.setBounds(112, 55, 77, 14);
+		cmbTipo.setBounds(75, 51, 114, 23);
 		add(cmbTipo);
 		
 		JLabel lblTipo = new JLabel("Tipo:");
@@ -84,7 +84,7 @@ public class PPedido extends JPanel {
 		
 		cmbFarma = new JComboBox();
 		cmbFarma.addItem("Todas");
-		cmbFarma.setBounds(142, 81, 77, 14);
+		cmbFarma.setBounds(122, 81, 138, 23);
 		add(cmbFarma);
 		
 		JLabel lblFarma = new JLabel("Farmaceutica:");
@@ -123,7 +123,7 @@ public class PPedido extends JPanel {
 		btnFiltrar.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnFiltrar.setBorderPainted(false);
 		btnFiltrar.setBackground(new Color(102, 102, 0));
-		btnFiltrar.setBounds(270, 81, 77, 27);
+		btnFiltrar.setBounds(270, 81, 97, 27);
 		add(btnFiltrar);
 		
 		spnCantidad = new JSpinner();
@@ -140,7 +140,7 @@ public class PPedido extends JPanel {
 		btnAnadir.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnAnadir.setBorderPainted(false);
 		btnAnadir.setBackground(new Color(102, 102, 0));
-		btnAnadir.setBounds(28, 335, 136, 23);
+		btnAnadir.setBounds(10, 335, 154, 23);
 		add(btnAnadir);
 		
 		btnLimpiar = new JButton(BTN_LIMPIAR);
@@ -183,17 +183,18 @@ public class PPedido extends JPanel {
 		txtNom.setColumns(10);
 		
 		scrpTblPr = new JScrollPane();
-		scrpTblPr.setBounds(28, 199, 304, 73);
+		scrpTblPr.setBounds(10, 199, 357, 92);
 		add(scrpTblPr);
 		
 		tblProd = new JTable();
 		scrpTblPr.setViewportView(tblProd);
 		
 		scrpTblPe = new JScrollPane();
-		scrpTblPe.setBounds(419, 68, 279, 197);
+		scrpTblPe.setBounds(389, 68, 326, 197);
 		add(scrpTblPe);
 		
 		tblPed = new JTable();
+		tblPed.setFont(new Font("Tahoma", Font.PLAIN, 7));
 		scrpTblPe.setViewportView(tblPed);
 		
 		configurarTabla();
@@ -216,6 +217,12 @@ public class PPedido extends JPanel {
 		dtmMed.addColumn(COL_FARMACEUTICA);
 		dtmMed.addColumn(COL_PRECIO);
 		dtmMed.addColumn(COL_STOCK);
+		
+		tblProd.getColumn(COL_NOMBRE).setPreferredWidth(75);
+		tblProd.getColumn(COL_TIPO).setPreferredWidth(75);
+		tblProd.getColumn(COL_FARMACEUTICA).setPreferredWidth(125);
+		tblProd.getColumn(COL_PRECIO).setPreferredWidth(75);
+		tblProd.getColumn(COL_STOCK).setPreferredWidth(75);
 	}
 	
 	private void configurarTabla2() {
@@ -235,6 +242,13 @@ public class PPedido extends JPanel {
 		dtmMed2.addColumn(COL_PRECIO);
 		dtmMed2.addColumn(COL_STOCK);
 		dtmMed2.addColumn(COL_CANTIDAD);
+		
+		tblPed.getColumn(COL_NOMBRE).setPreferredWidth(75);
+		tblPed.getColumn(COL_TIPO).setPreferredWidth(75);
+		tblPed.getColumn(COL_FARMACEUTICA).setPreferredWidth(75);
+		tblPed.getColumn(COL_PRECIO).setPreferredWidth(75);
+		tblPed.getColumn(COL_STOCK).setPreferredWidth(75);
+		tblPed.getColumn(COL_CANTIDAD).setPreferredWidth(125);
 	}
 	
 	public void setControladorBotones(InicioControl  c) {

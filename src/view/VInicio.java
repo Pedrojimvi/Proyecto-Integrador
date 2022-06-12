@@ -28,8 +28,8 @@ public class VInicio extends JFrame {
 	private JPasswordField txtPwd;
 	private JButton btnIniciarSesion;
 	private JButton btnCrearUsuario;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
+	private JLabel lblLogo1;
+	private JLabel lblLogo2;
 
 	public VInicio() {
 		getContentPane().setBackground(new Color(204, 255, 153));
@@ -42,11 +42,11 @@ public class VInicio extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(214, 107, 60, 17);
+		lblUsuario.setBounds(178, 106, 60, 17);
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(201, 167, 69, 17);
+		lblPassword.setBounds(178, 166, 69, 17);
 		getContentPane().add(lblPassword);
 		
 		txtUsuario = new JTextField();
@@ -81,21 +81,21 @@ public class VInicio extends JFrame {
 		btnCrearUsuario.setBounds(277, 215, 146, 42);
 		getContentPane().add(btnCrearUsuario);
 		
-		JLabel lblNewLabel = new JLabel("PHARMALAND");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblNewLabel.setBackground(new Color(204, 255, 153));
-		lblNewLabel.setBounds(165, 42, 301, 31);
-		getContentPane().add(lblNewLabel);
+		JLabel lblTitulo = new JLabel("PHARMALAND");
+		lblTitulo.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblTitulo.setBackground(new Color(204, 255, 153));
+		lblTitulo.setBounds(165, 42, 301, 31);
+		getContentPane().add(lblTitulo);
 		
-		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(VInicio.class.getResource("/Logo/Logo5.png")));
-		lblNewLabel_1.setBounds(29, 90, 125, 114);
-		getContentPane().add(lblNewLabel_1);
+		lblLogo1 = new JLabel("");
+		lblLogo1.setIcon(new ImageIcon(getClass().getResource("/logo/Logo5.png")));
+		lblLogo1.setBounds(29, 90, 125, 114);
+		getContentPane().add(lblLogo1);
 		
-		lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon(VInicio.class.getResource("/Logo/Logo5.png")));
-		lblNewLabel_2.setBounds(404, 92, 140, 112);
-		getContentPane().add(lblNewLabel_2);
+		lblLogo2 = new JLabel("");
+		lblLogo2.setIcon(new ImageIcon(getClass().getResource("/logo/Logo5.png")));
+		lblLogo2.setBounds(404, 92, 140, 112);
+		getContentPane().add(lblLogo2);
 		
 		
 		setSize(570, 340);

@@ -40,11 +40,11 @@ public class VCrear extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(119, 41, 60, 17);
+		lblUsuario.setBounds(99, 40, 75, 17);
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(108, 91, 94, 17);
+		lblPassword.setBounds(93, 90, 98, 17);
 		getContentPane().add(lblPassword);
 		
 		txtUsuario = new JTextField();
@@ -78,7 +78,7 @@ public class VCrear extends JFrame {
 		getContentPane().add(btnVolver);
 		
 		JLabel lblPasswordC = new JLabel("Confirmar Password:");
-		lblPasswordC.setBounds(66, 147, 136, 17);
+		lblPasswordC.setBounds(38, 146, 136, 17);
 		getContentPane().add(lblPasswordC);
 		
 		txtPwdC = new JPasswordField();

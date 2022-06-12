@@ -73,7 +73,7 @@ public class PVenta extends JPanel {
 		add(lblTipo);
 		
 		cmbTipo = new JComboBox();
-		cmbTipo.setBackground(new Color(204, 255, 153));
+		cmbTipo.setBackground(Color.WHITE);
 		cmbTipo.addItem("Todos");
 		cmbTipo.setBounds(117, 63, 78, 22);
 		add(cmbTipo);
@@ -137,7 +137,7 @@ public class PVenta extends JPanel {
 		btnVenta.setBackground(new Color(102, 102, 0));
 		btnVenta.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnVenta.setForeground(new Color(255, 255, 255));
-		btnVenta.setBounds(556, 303, 125, 23);
+		btnVenta.setBounds(556, 303, 146, 23);
 		add(btnVenta);
 		
 		setSize(ANCHO_PANEL, ALTO_PANEL);
@@ -151,14 +151,14 @@ public class PVenta extends JPanel {
 		
 		JScrollPane scrpTblPr_1 = new JScrollPane();
 		scrpTblPr_1.setBackground(Color.WHITE);
-		scrpTblPr_1.setBounds(33, 131, 304, 129);
+		scrpTblPr_1.setBounds(10, 125, 361, 135);
 		add(scrpTblPr_1);
 		
 		tblProd = new JTable();
 		scrpTblPr_1.setViewportView(tblProd);
 		
 		JScrollPane scrpTblPe_1 = new JScrollPane();
-		scrpTblPe_1.setBounds(402, 66, 279, 197);
+		scrpTblPe_1.setBounds(390, 66, 325, 197);
 		add(scrpTblPe_1);
 		
 		tblVenta = new JTable();
@@ -169,7 +169,7 @@ public class PVenta extends JPanel {
 		add(lblTipoPago);
 		
 		cmbPago = new JComboBox();
-		cmbPago.setBackground(new Color(204, 255, 153));
+		cmbPago.setBackground(Color.WHITE);
 		cmbPago.setModel(new DefaultComboBoxModel(new String[] {"TARJETA", "EFECTIVO"}));
 		cmbPago.setBounds(525, 269, 125, 22);
 		add(cmbPago);
@@ -194,6 +194,14 @@ public class PVenta extends JPanel {
 		dtmMed.addColumn(COL_FARMACEUTICA);
 		dtmMed.addColumn(COL_PRECIO);
 		dtmMed.addColumn(COL_STOCK);
+		
+		tblProd.getColumn(COL_NOMBRE).setPreferredWidth(75);
+		tblProd.getColumn(COL_TIPO).setPreferredWidth(75);
+		tblProd.getColumn(COL_FARMACEUTICA).setPreferredWidth(125);
+		tblProd.getColumn(COL_PRECIO).setPreferredWidth(75);
+		tblProd.getColumn(COL_STOCK).setPreferredWidth(75);
+       
+		
 	}
 	
 	private void configurarTabla2() {
@@ -213,6 +221,13 @@ public class PVenta extends JPanel {
 		dtmMed2.addColumn(COL_PRECIO);
 		dtmMed2.addColumn(COL_STOCK);
 		dtmMed2.addColumn(COL_CANTIDAD);
+		
+		tblVenta.getColumn(COL_NOMBRE).setPreferredWidth(75);
+		tblVenta.getColumn(COL_TIPO).setPreferredWidth(75);
+		tblVenta.getColumn(COL_FARMACEUTICA).setPreferredWidth(75);
+		tblVenta.getColumn(COL_PRECIO).setPreferredWidth(75);
+		tblVenta.getColumn(COL_STOCK).setPreferredWidth(75);
+		tblVenta.getColumn(COL_CANTIDAD).setPreferredWidth(125);
 	}
 	
 	
